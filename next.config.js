@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    env: {
-    BASE_URL: 'https://dashagamarska.github.io/backend/',
-  },
   images: {
     domains: ['i.ibb.co'],
     remotePatterns: [
