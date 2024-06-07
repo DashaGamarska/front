@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-    BASE_URL: 'https://full-project2.onrender.com',
+    BASE_URL: 'https://dashagamarska.github.io/backend/',
   },
   images: {
     domains: ['i.ibb.co'],
