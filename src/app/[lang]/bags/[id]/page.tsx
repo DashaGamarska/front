@@ -2,6 +2,7 @@
 'use client';
 import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
+import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
 import { generateMetadata } from '@components/components/helpers/generateMetadata';
 import { fetchBagsById } from '@lib/api-services/fetchBagsById';
 import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
