@@ -1,6 +1,7 @@
+'use client';
 import React, { FC, SetStateAction, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useClient } from 'next/client'; // Імпортуйте useClient з Next.js
+
 
 import styles from './Modal.module.scss';
 
