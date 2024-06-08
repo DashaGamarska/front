@@ -1,5 +1,5 @@
 
-
+'use client';
 import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import { generateMetadata } from '@components/components/helpers/generateMetadata';
