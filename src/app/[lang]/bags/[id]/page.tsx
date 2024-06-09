@@ -6,7 +6,7 @@ import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
 import type { Locale } from '@i18n';
 import { fetchBagsById } from '@lib/api-services/fetchBagsById';
-import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
+//import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
 import { getDictionary } from '@lib/utils/dictionary';
 
 interface BagsDetailsProps {
