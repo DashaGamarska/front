@@ -3,7 +3,7 @@ import Price from '@components/components/shared/Price/Price';
 import Typography from '@components/components/Typography/Typography';
 import type { BagsDetailsI, ButtonsTranslation } from '@components/types';
 import { Locale } from '@i18n';
-
+import {BoxDetailsI} from "../../../../../type";
 import BoxImgSlider from '../BagsImgSlider/BagsImgSlider';
 import BuyButton from '../BuyButton/BuyButton';
 
