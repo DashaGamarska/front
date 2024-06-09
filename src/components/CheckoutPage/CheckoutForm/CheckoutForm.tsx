@@ -19,7 +19,6 @@ import styles from './CheckoutForm.module.scss';
 
 const CheckoutForm: React.FC<CheckoutFormProps> = ({
   dict,
-  dictParam,
   toastDict: { failedRequest },
 }) => {
   const {
@@ -61,7 +60,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       dataForm,
       cartProducts,
       cartTotalPrice,
-      dictParam
+
     });
 
     try {
