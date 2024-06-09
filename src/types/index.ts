@@ -21,7 +21,7 @@ export interface BagsDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit?: string;
+  kit: string | undefined;
 }
 
 
