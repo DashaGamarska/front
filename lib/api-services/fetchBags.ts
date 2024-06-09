@@ -1,5 +1,5 @@
 import { BASE_URL } from '@components/constants';
-import { BagsDetailsI } from '@components/types';
+
 
 export const fetchBags = async (lang: ServerLocale): Promise<BagsDetailsI[]> => {
   //TODO: Remove revalidate
