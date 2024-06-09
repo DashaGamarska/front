@@ -166,8 +166,15 @@ interface ICartEmbroidery {
 
 interface ICartDecoration {
   id: string;
+  name: string;
   quantity: number;
   price: number;
+  images: string[];
+  title: string;
+  description: string;
+  slug: string;
+
+
 }
 
 interface ICartProducts {
