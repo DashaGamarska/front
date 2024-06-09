@@ -1,5 +1,6 @@
 
 'use client';
+import React, { FC } from 'react';
 import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
 //import RelatedProducts from '@components/components/shared/RelatedProducts/RelatedProducts';
