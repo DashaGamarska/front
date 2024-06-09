@@ -12,7 +12,7 @@ import type { Locale } from '@i18n';
 
 const Modal = dynamic(() => import('@components/components/Modal/Modal'), { ssr: false }); // Use dynamic import for Modal with ssr: false
 
-const BagsDetailsPage = dynamic(() => import('@components/components/Modal/Modal')); // Adjust this to your BagsDetailsPage import
+
 
 interface BagsDetailsProps {
   lang: Locale;
