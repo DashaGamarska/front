@@ -10,9 +10,9 @@ import { getDictionary } from '@lib/utils/dictionary';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
 import type { Locale } from '@i18n';
 
-const Modal = dynamic(() => import('@components/components/Modal/Modal'), { ssr: false }); // Use dynamic import for Modal with ssr: false
+const Modal = dynamic(() => import('@components/components/Modal/Modal'), { ssr: false });
 
-
+const BagsDetailsPage = dynamic(() => import('@components/components/BagsDetailsPage/BagsDetailsPage')); // Динамічний імпорт для BagsDetailsPage
 
 interface BagsDetailsProps {
   lang: Locale;
