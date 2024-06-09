@@ -1,4 +1,3 @@
-
 import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
@@ -10,71 +9,62 @@ import { fetchBagsById } from '@lib/api-services/fetchBagsById';
 //import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
 import { getDictionary } from '@lib/utils/dictionary';
 
-export async function generateMetadata({
-  params: { lang, id, slug = 'bag' },
-}: {
-  params: {
+interface Params {
     lang: Locale;
     id: string;
-  };
-}) {
-  const currentLang = convertToServerLocale(lang);
-
-  const bags = await fetchBagsById({ id, currentLang, slug });
-
-  return {
-    title: `CraftedElegance | ${bags.title}`,
-  };
+    slug?: string; 
 }
 
-const BagsDetails = async ({
-  params: { lang, id, slug },
-}: {
-  params: {
-      lang: Locale; 
-      id: string; 
-      slug: 'bag' 
-  };
-}) => {
-  const {
-    breadcrumbs,
-    relatedProducts:{title},
-    general: { buttons, messages },
-    productDescription,
-   
-  } = await getDictionary(lang);
+export async function generateMetadata({
+    params: { lang, id, slug = 'bag' },
+    }: {
+    params: Params;
+}) {
+    const currentLang = convertToServerLocale(lang);
 
-  const currentLang = convertToServerLocale(lang);
+    const bags = await fetchBagsById({ id, currentLang, slug });
 
-  const bags = await fetchBagsById({ id, currentLang, slug });
-  //const similarProducts = await fetchSimilarProducts({ id, currentLang });
+    return {
+        title: `CraftedElegance | ${bags.title}`,
+    };
+}
 
-  return (
-    <>
-      <Breadcrumbs
-        items={[
-          {
-            label: breadcrumbs.bags,
-            path: '/bags/${slug}',
-          },
-          {
-            label: bags.name,
-            path: `/bags/${bags.id}`,
-          },
-        ]}
-        lang={lang}
-      />
-      <BagsDetailsPage
-        product={bags}
-        buttonsDict={buttons}
-        toastMessages={messages}
-        productDescriptionDict={productDescription}
-        
-      />
-     
-    </>
-  );
+const BagsDetails: FC<{ params: Params }> = async ({ params: { lang, id, slug = 'bag' } }) => {
+    const {
+        breadcrumbs,
+        relatedProducts: { title },
+        general: { buttons, messages },
+        productDescription,
+    } = await getDictionary(lang);
+
+    const currentLang = convertToServerLocale(lang);
+
+    const bags = await fetchBagsById({ id, currentLang, slug });
+    //const similarProducts = await fetchSimilarProducts({ id, currentLang });
+
+    return (
+        <>
+            <Breadcrumbs
+                items={[
+                    {
+                        label: breadcrumbs.bags,
+                        path: `/bags/${slug}`,
+                    },
+                    {
+                        label: bags.name,
+                        path: `/bags/${bags.id}`,
+                    },
+                ]}
+                lang={lang}
+            />
+            <BagsDetailsPage
+                product={bags}
+                buttonsDict={buttons}
+                toastMessages={messages}
+                productDescriptionDict={productDescription}
+            />
+        </>
+    );
 };
 
 export default BagsDetails;
-
