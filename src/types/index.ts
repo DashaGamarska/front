@@ -2,19 +2,19 @@ import { StaticImageData } from 'next/image';
 import { UseFormReturn } from 'react-hook-form';
 import { Locale } from '@i18n';
 
-export interface IBagsKit {
+interface IBoxKit {
   container: string;
   wax: string;
   wick: string;
+  aromaToChoose: string;
   matchsticks: string;
 }
 
-export interface BagsDetailsI {
+interface BoxDetailsI {
   id: string;
   images: string[];
   title: string;
   name: string;
-  quantity: number;
   price: number;
   components: ComponentI[];
   description: string;
@@ -23,6 +23,7 @@ export interface BagsDetailsI {
   text: string;
   kit: string | undefined;
 }
+
 
 
 export interface ComponentI {
