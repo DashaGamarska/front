@@ -54,6 +54,7 @@ export interface DecorationDetailsI {
 }
 export interface ICartDecoration {
   id: string;
+  name: string;
   images: string[];
   title: string;
   description: string;
