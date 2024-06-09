@@ -23,6 +23,20 @@ export interface BagsDetailsI {
   text: string;
   kit: string;
 }
+export interface BoxDetailsI {
+  id: string;
+  images: string[];
+  title: string;
+  name: string;
+  quantity: number;
+  price: number;
+  components: ComponentI[];
+  description: string;
+  slug: string;
+  volume: string;
+  text: string;
+  kit?: IBoxKit; 
+}
 
 export interface ComponentI {
   title: string;
