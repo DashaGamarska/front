@@ -1,18 +1,13 @@
 
 'use client';
-import React, { FC } from 'react';
-import dynamic from 'next/dynamic';
+import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
-import { generateMetadata } from '@components/components/helpers/generateMetadata';
+//import RelatedProducts from '@components/components/shared/RelatedProducts/RelatedProducts';
+import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
+import type { Locale } from '@i18n';
 import { fetchBagsById } from '@lib/api-services/fetchBagsById';
 import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
 import { getDictionary } from '@lib/utils/dictionary';
-import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
-import type { Locale } from '@i18n';
-
-const Modal = dynamic(() => import('@components/components/Modal/Modal'), { ssr: false });
-
-const BagsDetailsPage = dynamic(() => import('@components/components/BagsDetailsPage/BagsDetailsPage')); // Динамічний імпорт для BagsDetailsPage
 
 interface BagsDetailsProps {
   lang: Locale;
@@ -46,12 +41,7 @@ const { data: bagsData } = fetchBagsById({ id, slug: 'some-slug-value', currentL
         productDescriptionDict={dictionaryData.productDescription}
         configuratorDict={dictionaryData.page.embroidery?.configurator || {}}
       />
-      <Modal
-        active={true} // Adjust this based on your logic to show the modal
-        setActive={() => {}} // Implement setActive function
-      >
      
-      </Modal>
     </>
   );
 };
