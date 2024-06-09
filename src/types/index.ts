@@ -35,6 +35,7 @@ export interface BagsDetailsI {
   volume: string;
   text: string;
   kit: IBoxKit;
+  quantity: number;
 }
 
 
