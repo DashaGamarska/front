@@ -1,14 +1,13 @@
-
 'use client';
 import React, { FC } from 'react';
-import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
+import dynamic from 'next/dynamic';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
-//import RelatedProducts from '@components/components/shared/RelatedProducts/RelatedProducts';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
 import type { Locale } from '@i18n';
 import { fetchBagsById } from '@lib/api-services/fetchBagsById';
-//import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
 import { getDictionary } from '@lib/utils/dictionary';
+
+const BagsDetailsPage = dynamic(() => import('@components/components/BagsDetailsPage/BagsDetailsPage'), { ssr: false });
 
 interface BagsDetailsProps {
   lang: Locale;
@@ -16,9 +15,8 @@ interface BagsDetailsProps {
 }
 
 const BagsDetails: FC<BagsDetailsProps> = ({ lang, id }) => {
-const { data: bagsData } = fetchBagsById({ id, slug: 'some-slug-value', currentLang: convertToServerLocale(lang) });
-   // const { data: similarProductsData } = fetchSimilarProducts({ id, slug: 'some-slug-value', currentLang: convertToServerLocale(lang) });
-    const { data: dictionaryData } = getDictionary(lang);
+  const { data: bagsData } = fetchBagsById({ id, slug: 'some-slug-value', currentLang: convertToServerLocale(lang) });
+  const { data: dictionaryData } = getDictionary(lang);
 
   return (
     <>
@@ -42,7 +40,6 @@ const { data: bagsData } = fetchBagsById({ id, slug: 'some-slug-value', currentL
         productDescriptionDict={dictionaryData.productDescription}
         configuratorDict={dictionaryData.page.embroidery?.configurator || {}}
       />
-     
     </>
   );
 };
