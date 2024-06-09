@@ -2,46 +2,79 @@
 import React, { FC } from 'react';
 import dynamic from 'next/dynamic';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
+import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
+//import RelatedProducts from '@components/components/shared/RelatedProducts/RelatedProducts';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
 import type { Locale } from '@i18n';
 import { fetchBagsById } from '@lib/api-services/fetchBagsById';
+//import { fetchSimilarProducts } from '@lib/api-services/fetchSimilarProducts';
 import { getDictionary } from '@lib/utils/dictionary';
 
-const BagsDetailsPage = dynamic(() => import('@components/components/BagsDetailsPage/BagsDetailsPage'), { ssr: false });
+export async function generateMetadata({
+  params: { lang, id, slug = 'bag' },
+}: {
+  params: {
+    lang: Locale;
+    id: string;
+  };
+}) {
+  const currentLang = convertToServerLocale(lang);
 
-interface BagsDetailsProps {
-  lang: Locale;
-  id: string;
+  const bags = await fetchBagsById({ id, currentLang, slug });
+
+  return {
+    title: `CraftedElegance | ${bags.title}`,
+  };
 }
 
-const BagsDetails: FC<BagsDetailsProps> = ({ lang, id }) => {
-  const { data: bagsData } = fetchBagsById({ id, slug: 'some-slug-value', currentLang: convertToServerLocale(lang) });
-  const { data: dictionaryData } = getDictionary(lang);
+const BagsDetails = async ({
+  params: { lang, id, slug },
+}: {
+  params: {
+      lang: Locale; 
+      id: string; 
+      slug: 'bag' 
+  };
+}) => {
+  const {
+    breadcrumbs,
+    relatedProducts:{title},
+    general: { buttons, messages },
+    productDescription,
+   
+  } = await getDictionary(lang);
+
+  const currentLang = convertToServerLocale(lang);
+
+  const bags = await fetchBagsById({ id, currentLang, slug });
+  //const similarProducts = await fetchSimilarProducts({ id, currentLang });
 
   return (
     <>
       <Breadcrumbs
         items={[
           {
-            label: dictionaryData.breadcrumbs.bags,
-            path: '/bags',
+            label: breadcrumbs.bags,
+            path: '/bags/${slug}',
           },
           {
-            label: bagsData.name,
-            path: `/bags/${bagsData.id}`,
+            label: bags.name,
+            path: `/bags/${bags.id}`,
           },
         ]}
         lang={lang}
       />
       <BagsDetailsPage
-        product={bagsData}
-        buttonsDict={dictionaryData.general.buttons}
-        toastMessages={dictionaryData.general.messages}
-        productDescriptionDict={dictionaryData.productDescription}
-        configuratorDict={dictionaryData.page.embroidery?.configurator || {}}
+        product={bags}
+        buttonsDict={buttons}
+        toastMessages={messages}
+        productDescriptionDict={productDescription}
+        
       />
+     
     </>
   );
 };
 
 export default BagsDetails;
+
