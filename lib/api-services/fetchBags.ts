@@ -1,8 +1,8 @@
 import { BASE_URL } from '@components/constants';
-import { BagsDetailsI } from '@components/types';
+import { BoxDetailsI  } from '@components/types';
 import {ServerLocale} from "../../type";
 
-export const fetchBags = async (lang: ServerLocale): Promise<BagsDetailsI[]> => {
+export const fetchBags = async (lang: ServerLocale): Promise<BoxDetailsI []> => {
   //TODO: Remove revalidate
   const response = await fetch(`${BASE_URL}/bags?lang=${lang}`, {next: { revalidate: 3600 },
   });
