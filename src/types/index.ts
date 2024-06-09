@@ -14,6 +14,7 @@ export interface BagsDetailsI {
   images: string[];
   title: string;
   name: string;
+  quantity: number;
   price: number;
   components: ComponentI[];
   description: string;
