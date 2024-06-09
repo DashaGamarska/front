@@ -10,7 +10,7 @@ interface IBoxKit {
   matchsticks: string;
 }
 
-interface BoxDetailsI {
+export interface BoxDetailsI {
   id: string;
   images: string[];
   title: string;
@@ -21,7 +21,7 @@ interface BoxDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit: string | undefined;
+  kit: IBoxKit;
 }
 
 
