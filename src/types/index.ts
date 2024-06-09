@@ -52,6 +52,15 @@ export interface DecorationDetailsI {
   price: number;
   slug: string;
 }
+export interface ICartDecoration {
+  id: string;
+  images: string[];
+  title: string;
+  description: string;
+  quantity: number;
+  price: number;
+  slug: string;
+}
 
 export interface ICustomDecoration {
   id: string;
