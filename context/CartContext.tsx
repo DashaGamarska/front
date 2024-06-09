@@ -58,7 +58,12 @@ interface CartActionsContextProps {
     quantity,
     price,
   }: IAddEmbroideryToCartParams) => void;
-
+  addBoxToCart: ({
+                   id,
+                   toastMessage,
+                   quantity,
+                   price,
+                 }: IAddDecorationsToCartParams) => void;
   toggleQuantity: ({ id, value, type }: IToggleQuantityParams) => void;
   deleteCartItem: ({ id, type, toastMessage }: IDeleteCartItemParams) => void;
   clearCartProducts: () => void;
@@ -68,13 +73,47 @@ const CartContext = createContext<CartContextI | null>(null);
 const CartActionsContext = createContext<CartActionsContextProps | null>(null);
 
 export const CartContextProvider = ({ children }: CartContextProps) => {
+
   const initCardProducts = getInitialCartProducts();
 
   const [cartProducts, setCartProducts] = useLocalStorage<ICartProducts>(
     'cartProducts',
     initCardProducts
   );
+  const addBoxToCart = useCallback(
+      ({
+         id,
+         toastMessage,
+         quantity = 1,
+         price,
+       }: IAddDecorationsToCartParams) => {
+        setCartProducts(prevItems => {
+          const isBoxInCart = prevItems.decorations?.find(
+              box => box.id === id
+          );
+          const updatedItems = isBoxInCart
+              ? {
+                ...prevItems,
+                decorations: prevItems.decorations.map(box => {
+                  if (box.id === id) {
+                    return {
+                      ...box,
+                      quantity: box.quantity + quantity,
+                    };
+                  }
+                  return box;
+                }),
+              }
+              : {
+                ...prevItems,
+                decorations: [...prevItems?.decorations, { id, quantity, price }],
+              };
+          return updatedItems;
+        });
 
+        showToast(`${toastMessage}`);
+      },
+      [setCartProducts]);
   const decorationsQuantity =
     cartProducts.decorations.length > 0
       ? cartProducts.decorations.reduce((acc, item) => acc + item.quantity, 0)
@@ -277,6 +316,7 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
           addDecorationsToCart,
           addEmbroideryToCart,
           toggleQuantity,
+          addBoxToCart,
           deleteCartItem,
           clearCartProducts,
         }}
