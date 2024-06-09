@@ -1,4 +1,4 @@
-import { BagsDetailsI, ButtonsDictI, configuratorSectionI } from '../../types';
+import { BagsDetailsI, ButtonsDictI } from '../../types';
 import Container from '../Container/Container';
 import Section from '../Section/Section';
 import Description from '../shared/Description/Description';
@@ -11,7 +11,7 @@ interface BagsDetailsPageI {
   buttonsDict: ButtonsDictI;
   toastMessages: IToastMessages;
   productDescriptionDict: IProductDescriptionDict;
-  configuratorDict: configuratorSectionI;
+ 
 }
 
 const BagsDetailsPage: React.FC<BagsDetailsPageI> = ({
@@ -19,7 +19,7 @@ const BagsDetailsPage: React.FC<BagsDetailsPageI> = ({
   buttonsDict,
   toastMessages,
   productDescriptionDict,
-  configuratorDict,
+  
 }) => {
   return (
     <>
@@ -33,7 +33,7 @@ const BagsDetailsPage: React.FC<BagsDetailsPageI> = ({
               buttonsDict={buttonsDict}
               toastMessages={toastMessages}
               productDescriptionDict={productDescriptionDict}
-              configuratorDict={configuratorDict}
+              
             />
           </div>
         </Container>
