@@ -1,4 +1,4 @@
-@import '../../course/front/src/scss/utilities/breakpoint-mixin';
+@import '../../../../src/scss/utilities/breakpoint-mixin';
 
 #decorations_details_section {
   @include breakpoint('desktop-large') {
