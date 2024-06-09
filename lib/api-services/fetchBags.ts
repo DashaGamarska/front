@@ -1,6 +1,6 @@
 import { BASE_URL } from '@components/constants';
 import { BoxDetailsI  } from '@components/types';
-import {ServerLocale} from "../../type";
+
 
 export const fetchBags = async (lang: ServerLocale): Promise<BoxDetailsI []> => {
   //TODO: Remove revalidate
