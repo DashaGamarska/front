@@ -1,4 +1,5 @@
 'use client';
+
 import { createContext, useCallback, useContext, useMemo } from 'react';
 import { DECREMENT, INCREMENT } from '@components/constants';
 import { getInitialCartProducts } from '@components/helpers';
@@ -10,6 +11,11 @@ interface IAddDecorationsToCartParams {
   toastMessage: string;
   quantity?: number;
   price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
 }
 
 interface IAddEmbroideryToCartParams {
@@ -17,10 +23,11 @@ interface IAddEmbroideryToCartParams {
   toastMessage: string;
   quantity?: number;
   price: number;
-}
-
-interface IAddCustomDecorationsToCartParams {
-  toastMessage: string;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
 }
 
 interface IToggleQuantityParams {
@@ -46,26 +53,11 @@ interface CartContextI {
 }
 
 interface CartActionsContextProps {
-  addDecorationsToCart: ({
-    id,
-    toastMessage,
-    quantity,
-    price,
-  }: IAddDecorationsToCartParams) => void;
-  addEmbroideryToCart: ({
-    id,
-    toastMessage,
-    quantity,
-    price,
-  }: IAddEmbroideryToCartParams) => void;
-  addBoxToCart: ({
-                   id,
-                   toastMessage,
-                   quantity,
-                   price,
-                 }: IAddDecorationsToCartParams) => void;
-  toggleQuantity: ({ id, value, type }: IToggleQuantityParams) => void;
-  deleteCartItem: ({ id, type, toastMessage }: IDeleteCartItemParams) => void;
+  addDecorationsToCart: (params: IAddDecorationsToCartParams) => void;
+  addEmbroideryToCart: (params: IAddEmbroideryToCartParams) => void;
+  addBoxToCart: (params: IAddDecorationsToCartParams) => void;
+  toggleQuantity: (params: IToggleQuantityParams) => void;
+  deleteCartItem: (params: IDeleteCartItemParams) => void;
   clearCartProducts: () => void;
 }
 
@@ -73,47 +65,57 @@ const CartContext = createContext<CartContextI | null>(null);
 const CartActionsContext = createContext<CartActionsContextProps | null>(null);
 
 export const CartContextProvider = ({ children }: CartContextProps) => {
-
-  const initCardProducts = getInitialCartProducts();
+  const initCartProducts = getInitialCartProducts();
 
   const [cartProducts, setCartProducts] = useLocalStorage<ICartProducts>(
     'cartProducts',
-    initCardProducts
+    initCartProducts
   );
-  const addBoxToCart = useCallback(
-      ({
-         id,
-         toastMessage,
-         quantity = 1,
-         price,
-       }: IAddDecorationsToCartParams) => {
-        setCartProducts(prevItems => {
-          const isBoxInCart = prevItems.decorations?.find(
-              box => box.id === id
-          );
-          const updatedItems = isBoxInCart
-              ? {
-                ...prevItems,
-                decorations: prevItems.decorations.map(box => {
-                  if (box.id === id) {
-                    return {
-                      ...box,
-                      quantity: box.quantity + quantity,
-                    };
-                  }
-                  return box;
-                }),
-              }
-              : {
-                ...prevItems,
-                decorations: [...prevItems?.decorations, { id, quantity, price }],
-              };
-          return updatedItems;
-        });
 
-        showToast(`${toastMessage}`);
-      },
-      [setCartProducts]);
+  const addBoxToCart = useCallback(
+    ({
+      id,
+      toastMessage,
+      quantity = 1,
+      price,
+      images,
+      description,
+      slug,
+      name,
+      title
+    }: IAddDecorationsToCartParams) => {
+      setCartProducts(prevItems => {
+        const isBoxInCart = prevItems.decorations?.find(
+          box => box.id === id
+        );
+        const updatedItems = isBoxInCart
+          ? {
+              ...prevItems,
+              decorations: prevItems.decorations.map(box => {
+                if (box.id === id) {
+                  return {
+                    ...box,
+                    quantity: box.quantity + quantity,
+                  };
+                }
+                return box;
+              }),
+            }
+          : {
+              ...prevItems,
+              decorations: [
+                ...prevItems.decorations,
+                { id, quantity, price, images, description, slug, name, title }
+              ],
+            };
+        return updatedItems;
+      });
+
+      showToast(`${toastMessage}`);
+    },
+    [setCartProducts]
+  );
+
   const decorationsQuantity =
     cartProducts.decorations.length > 0
       ? cartProducts.decorations.reduce((acc, item) => acc + item.quantity, 0)
@@ -149,6 +151,11 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
       toastMessage,
       quantity = 1,
       price,
+      images,
+      description,
+      slug,
+      name,
+      title
     }: IAddDecorationsToCartParams) => {
       setCartProducts(prevItems => {
         const isDecorationsInCart = prevItems.decorations?.find(
@@ -169,7 +176,10 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
             }
           : {
               ...prevItems,
-              decorations: [...prevItems?.decorations, { id, quantity, price }],
+              decorations: [
+                ...prevItems.decorations,
+                { id, quantity, price, images, description, slug, name, title }
+              ],
             };
         return updatedItems;
       });
@@ -180,7 +190,17 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
   );
 
   const addEmbroideryToCart = useCallback(
-    ({ id, toastMessage, quantity = 1, price }: IAddEmbroideryToCartParams) => {
+    ({
+      id,
+      toastMessage,
+      quantity = 1,
+      price,
+      images,
+      description,
+      slug,
+      name,
+      title
+    }: IAddEmbroideryToCartParams) => {
       setCartProducts(prevItems => {
         const isEmbroideryInCart = prevItems.embroidery.find(
           embroidery => embroidery.id === id
@@ -200,7 +220,10 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
             }
           : {
               ...prevItems,
-              embroidery: [...prevItems.embroidery, { id, quantity, price }],
+              embroidery: [
+                ...prevItems.embroidery,
+                { id, quantity, price, images, description, slug, name, title }
+              ],
             };
         return updatedItems;
       });
@@ -256,7 +279,6 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
   const deleteCartItem = ({
     id,
     type,
-
     toastMessage,
   }: IDeleteCartItemParams) => {
     if (type === 'decorations') {
@@ -295,10 +317,8 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
   };
 
   const clearCartProducts = useCallback(() => {
-    setCartProducts(initCardProducts);
-  }, [initCardProducts, setCartProducts]);
-
-  console.log("cartProducts", cartProducts);
+    setCartProducts(initCartProducts);
+  }, [initCartProducts, setCartProducts]);
 
   const contextValue = useMemo(
     () => ({
