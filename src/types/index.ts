@@ -91,11 +91,13 @@ export interface handelParamChangeArguments {
 }
 
 export interface ProductDetails {
-  id: string;
+    id: string;
   images: string[];
   title: string;
   price: number;
   slug: string;
+  description : string;
+  name: string;
 }
 
 export interface AreaData {
