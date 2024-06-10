@@ -162,18 +162,22 @@ interface ICartEmbroidery {
   id: string;
   quantity: number;
   price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
 }
 
 interface ICartDecoration {
   id: string;
-  name: string;
   quantity: number;
   price: number;
   images: string[];
-  title: string;
   description: string;
   slug: string;
-
+  name: string;
+  title: string;
 
 }
 
