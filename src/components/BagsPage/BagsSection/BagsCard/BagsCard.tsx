@@ -5,7 +5,6 @@ import type { BoxDetailsI, ButtonsTranslation } from '@components/types';
 import { Locale } from '@i18n';
 import BoxImgSlider from '../BagsImgSlider/BagsImgSlider';
 import BuyButton from '../BuyButton/BuyButton';
-
 import styles from './BagsCard.module.scss';
 
 type BagsCardProps = {
@@ -22,6 +21,17 @@ const BagsCard: React.FC<BagsCardProps> = ({
   lang,
 }) => {
   const { id, images, title, price, slug, text } = box;
+
+  const product = {
+    id,
+    price,
+    images,
+    description: text,
+    slug,
+    name: title,
+    title,
+  };
+
   return (
     <li className={styles.card}>
       <BoxImgSlider img={images} />
@@ -39,7 +49,7 @@ const BagsCard: React.FC<BagsCardProps> = ({
         <Price priceStyle={styles.price} price={price} />
         <div className={styles.button__container}>
           <BuyButton
-            product={{ id, price }}
+            product={product}
             buyBtn={buyBtn}
             toastMessage={toastMessage}
           />
