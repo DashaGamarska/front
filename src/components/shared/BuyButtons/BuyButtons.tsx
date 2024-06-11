@@ -1,90 +1,53 @@
-import { useRouter } from 'next/navigation';
+'use client';
+import React from 'react';
 import Button from '@components/components/Button/Button';
-import { showToast } from '@components/helpers/showToast';
-import { useLangFromPathname } from '@components/hooks';
-import { ButtonsDictI } from '@components/types';
 import { useCartActionsContext } from '@context/CartContext';
+import { toastMessages } from '@constants/toastMessages';
 
-import styles from './BuyButtons.module.scss';
-
-interface BuyButtonsProps {
-  buttonsDict: ButtonsDictI;
-  toastMessages: IToastMessages;
-  product: {
-    id: string;
-    slug: string;
-    quantity: number;
-    price: number;
-    aroma?: string | number;
-  };
+interface Product {
+  id: string;
+  price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
+  aroma: number;
 }
 
-const BuyButtons: React.FC<BuyButtonsProps> = ({
-  product,
-  buttonsDict: { buyNow, addToCart },
-  toastMessages,
-}) => {
-  const {  addBoxToCart } = useCartActionsContext();
-  const router = useRouter();
-  const lang = useLangFromPathname();
+interface BuyButtonsProps {
+  product: Product;
+  isBox: boolean;
+}
 
-  const { id, slug, quantity, price } = product;
-  const isBox = slug === '/boxes';
-
- 
-
-  const handleBuyBox = () => {
-    isBox &&
-      typeof product.aroma === 'number' &&
-      addBoxToCart({
-        id,
-        toastMessage: toastMessages.itemAdded,
-        aroma: product.aroma,
-        quantity,
-        price,
-      });
-  };
-
-  const handleBuyButton = () => {
-    if (!isBox) {
-      handleBuyCandle();
-    } else if (isBox && typeof product.aroma === 'number') {
-      handleBuyBox();
-    } else {
-      showToast(toastMessages.aromaNeeded, 'warning');
-    }
-  };
-
-  const handleBuyNowButtonClick = () => {
-    if (!isBox) {
-      handleBuyCandle();
-      router.push(`/${lang}/checkout`);
-    } else if (isBox && typeof product.aroma === 'number') {
-      handleBuyBox();
-      router.push(`/${lang}/checkout`);
-    } else {
-      showToast(toastMessages.aromaNeeded, 'warning');
-    }
-  };
+const BuyButtons: React.FC<BuyButtonsProps> = ({ product, isBox }) => {
+  const { addBoxToCart } = useCartActionsContext();
+  const { id, price, images, description, slug, name, title, aroma } = product;
 
   return (
-    <div className={styles.candleBuyWrapper}>
-      <Button
-        variant="secondary"
-        className={styles.candleBuy}
-        type="button"
-        onClick={handleBuyButton}
-      >
-        {addToCart}
-      </Button>
-      <Button
-        variant="primary"
-        className={styles.candleBuy}
-        type="button"
-        onClick={handleBuyNowButtonClick}
-      >
-        {buyNow}
-      </Button>
+    <div>
+      {isBox && typeof aroma === 'number' && (
+        <Button
+          variant="primary"
+          type="button"
+          onClick={() =>
+            addBoxToCart({
+              id,
+              toastMessage: toastMessages.itemAdded,
+              aroma,
+              quantity: 1,
+              price,
+              images,
+              description,
+              slug,
+              name,
+              title,
+            })
+          }
+        >
+          Add to Cart
+        </Button>
+      )}
     </div>
   );
 };
