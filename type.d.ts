@@ -87,7 +87,7 @@ interface IToastMessages {
   |==============================
 */
 
-type ServerLocale = 'UA' | 'EN';
+export type ServerLocale = 'UA' | 'EN';
 
 interface ApiRequest {
   id: string;
