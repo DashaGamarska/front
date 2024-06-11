@@ -3,13 +3,27 @@
 'use client';
 import { useState } from 'react';
 import Typography from '@components/components/Typography/Typography';
-import {IProductDescriptionDict, IToastMessages} from "@components/types"
+import { IToastMessages} from "@components/types"
 import AccordionSection from '../AccordionSection/AccordionSection';
 import BuyButtons from '../BuyButtons/BuyButtons';
 import DecorationQuantity from '../DecorationQuantity/DecorationQuantity';
 
 import styles from './Description.module.scss';
-
+ interface IProductDescriptionDict {
+  price: string;
+  quantity: string;
+  topNotes: string;
+  baseNotes: string;
+  volume: string;
+  containerVolume: string;
+  matchsticks: string;
+  wick: string;
+  wax: string;
+  color: string;
+  aroma: string;
+  aromaToChoose: string;
+  volumeLabel: string;
+}
 interface DescriptionProps {
   product: EmbroideryDetailsI;
   id: string;
