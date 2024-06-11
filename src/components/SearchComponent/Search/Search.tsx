@@ -8,7 +8,7 @@ import debounce from 'lodash.debounce';
 
 import Input from '../../Input/Input';
 import SearchResult from '../SearchResult/SearchResult';
-
+import {DictSearchI} from "../../../../type";
 import styles from './Search.module.scss';
 
 interface SearchProps {
