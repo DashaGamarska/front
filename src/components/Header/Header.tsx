@@ -9,7 +9,7 @@ import type { Locale } from '@i18n';
 import logo from '@images/icons/logo.svg';
 import sm_logo from '@images/icons/sm-logo.svg';
 import { useWindowSize } from 'usehooks-ts';
-
+import {DictSearchI} from "../../../type";
 import Container from '../Container/Container';
 import Modal from '../Modal/Modal';
 import Navigation from '../Navigation/Navigation';
