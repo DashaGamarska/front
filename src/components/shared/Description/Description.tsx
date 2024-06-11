@@ -9,6 +9,11 @@ import BuyButtons from '../BuyButtons/BuyButtons';
 import DecorationQuantity from '../DecorationQuantity/DecorationQuantity';
 
 import styles from './Description.module.scss';
+interface ButtonsDictI {
+  buyNow: string;
+  addToCart: string;
+}
+
 interface EmbroideryDetailsI {
   id: string;
   name: string;
