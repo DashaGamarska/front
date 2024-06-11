@@ -6,6 +6,11 @@ interface BuyButtonProps {
   product: {
     id: string;
     price: number;
+    images: string[]; 
+    description: string; 
+    slug: string; 
+    name: string; 
+    title: string; 
   };
   buyBtn: string;
   toastMessage: string;
@@ -17,9 +22,9 @@ const BuyButton: React.FC<BuyButtonProps> = ({
   toastMessage,
 }) => {
   const { addEmbroideryToCart } = useCartActionsContext();
-  const { id, price } = product;
+  const { id, price, images, description, slug, name, title } = product;
 
-  console.log("product buy",product);
+  console.log("product buy", product);
   return (
     <Button
       variant="primary"
@@ -30,6 +35,11 @@ const BuyButton: React.FC<BuyButtonProps> = ({
           toastMessage,
           quantity: 1,
           price,
+          images, 
+          description, 
+          slug, 
+          name, 
+          title, 
         })
       }
     >
