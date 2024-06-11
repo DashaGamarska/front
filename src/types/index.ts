@@ -9,7 +9,11 @@ interface IBoxKit {
   aromaToChoose: string;
   matchsticks: string;
 }
-
+export interface ApiRequest {
+  id: string;
+  currentLang: 'UA' | 'EN';
+  slug?: string;
+}
 export interface BoxDetailsI {
   id: string;
   images: string[];
