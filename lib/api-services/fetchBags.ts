@@ -1,5 +1,5 @@
 import { BASE_URL } from '@components/constants';
-import { BoxDetailsI  } from '@components/types';
+
 
 export type ServerLocale = 'UA' | 'EN';
 interface BoxDetailsI {
