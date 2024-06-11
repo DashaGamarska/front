@@ -62,6 +62,9 @@ export interface ComponentI {
   title: string;
   content: string;
 }
+interface DecorationsApiResponse {
+  decorations: DecorationsDetailsI[];
+}
 export interface DecorationDetailsI {
   id: string;
   images: string[];
