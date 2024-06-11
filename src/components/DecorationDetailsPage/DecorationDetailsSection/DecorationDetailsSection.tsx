@@ -7,7 +7,7 @@ import {ButtonsDictI, DecorationDetailsI, IToastMessages} from '@components/type
 import Description from '../../shared/Description/Description';
 
 import styles from './DecorationDetailsSection.module.scss';
-
+import {IProductDescriptionDict} from "../../../../type";
 interface DecorationsDetailsSectionI {
   product: DecorationDetailsI;
   buttonsDict: ButtonsDictI;
