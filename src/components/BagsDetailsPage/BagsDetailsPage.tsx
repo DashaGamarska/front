@@ -1,11 +1,11 @@
-import { BagsDetailsI, ButtonsDictI } from '../../types';
-import Container from '../Container/Container';
-import Section from '../Section/Section';
-import ProductImgGallery from '../shared/ProductImgGallery/ProductImgGallery';
-import {ButtonsDictI, DecorationDetailsI, IToastMessages} from '@components/types';
+import {BagsDetailsI, ButtonsDictI, IToastMessages} from '../../types';
+import Container from '@components/components/Container/Container';
+import Section from '@components/components/Section/Section';
+import Description from '../shared/Description/Description';
+import ProductImgGallery from '@components/components/shared/ProductImgGallery/ProductImgGallery';
+
 import styles from './BagsDetailsPage.module.scss';
-import Description from '../../shared/Description/Description';
-import {IProductDescriptionDict} from "../../../../type";
+import {IProductDescriptionDict} from "../../../type";
 
 interface BagsDetailsPageI {
   product: BagsDetailsI;
