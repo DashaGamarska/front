@@ -16,6 +16,7 @@ interface IAddDecorationsToCartParams {
   slug: string;
   name: string;
   title: string;
+  aroma?: number;
 }
 
 interface IAddEmbroideryToCartParams {
