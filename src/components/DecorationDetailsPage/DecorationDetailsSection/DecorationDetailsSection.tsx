@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@components/components/Container/Container';
 import Section from '@components/components/Section/Section';
 import ProductImgGallery from '@components/components/shared/ProductImgGallery/ProductImgGallery';
-import { ButtonsDictI, DecorationDetailsI } from '@components/types';
+import {ButtonsDictI, DecorationDetailsI, IToastMessages} from '@components/types';
 
 import Description from '../../shared/Description/Description';
 
