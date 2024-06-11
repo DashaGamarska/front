@@ -1,7 +1,9 @@
+// src/components/shared/Description/Description.tsx
+
 'use client';
 import { useState } from 'react';
 import Typography from '@components/components/Typography/Typography';
-import { ButtonsDictI, EmbroideryDetailsI } from '@components/types';
+import { ButtonsDictI, EmbroideryDetailsI, IToastMessages, IProductDescriptionDict } from '@components/types';
 
 import AccordionSection from '../AccordionSection/AccordionSection';
 import BuyButtons from '../BuyButtons/BuyButtons';
@@ -75,10 +77,15 @@ const Description: React.FC<DescriptionProps> = ({
           product={{
             id: productId,
             slug,
-            quantity,
             price,
+            name,
+            description,
+            title: name,  // Assuming title is same as name here, adjust if needed
+            images: [],  // You need to pass images from your product object
+            aroma: 0  // Default value, adjust if necessary
           }}
-          buttonsDict={buttonsDict}
+          isBox={true}
+          quantity={quantity}
           toastMessages={toastMessages}
         />
         {isEmbroideryPage && (
