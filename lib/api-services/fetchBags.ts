@@ -1,7 +1,9 @@
 import { BASE_URL } from '@components/constants';
-
-
-export type ServerLocale = 'UA' | 'EN';
+type ServerLocale = 'UA' | 'EN';
+interface ComponentI {
+  title: string;
+  content: string;
+}
 interface BoxDetailsI {
   id: string;
   images: string[];
