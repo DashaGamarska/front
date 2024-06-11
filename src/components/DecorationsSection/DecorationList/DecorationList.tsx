@@ -3,7 +3,7 @@ import MobilePagination from '../../shared/MobilePagination/MobilePagination';
 import DecorationItemCard from '../DecorationItemCard/DecorationItemCard';
 
 import styles from './DecorationList.module.scss';
-
+import {DecorationsApiResponse} from "../../../../type";
 interface DecorationListProps {
   items: Promise<DecorationsApiResponse>;
   paginBtnDict: string;
