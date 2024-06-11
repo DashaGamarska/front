@@ -137,12 +137,7 @@ interface BoxDetailsI {
   | Candles
   |==============================
 */
-export interface CustomCandleDescription {
-  
-  id: string;
-  description: string;
-  price: number;
-}
+
 interface DecorationDetailsI {
   id: string;
   images: string[];
