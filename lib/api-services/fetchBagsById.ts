@@ -1,6 +1,6 @@
 import { BASE_URL } from '@components/constants';
 import { BagsDetailsI } from '@components/types';
-
+import {ApiRequest} from "../../type";
 export const fetchBagsById = async ({ id, currentLang }: ApiRequest) => {
   const response = await fetch(`${BASE_URL}/bags/${id}?lang=${currentLang}`);
 
