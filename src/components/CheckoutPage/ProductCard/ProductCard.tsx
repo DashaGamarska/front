@@ -9,7 +9,7 @@ import type { ProductDescription } from '@components/types';
 import { useCartActionsContext, useCartContext } from '@context/CartContext';
 
 import styles from './ProductCard.module.scss';
-
+import {IHandleDeleteParams} from "../../../../type";
 interface ProductCardProps {
   deleteButtonText: string;
   id: string;
