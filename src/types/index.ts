@@ -374,6 +374,7 @@ export interface EmbroideryDetailsI {
   price: number;
   images: string[];
   slug: string;
+  title: string;
 }
 
 export interface EmbroideryI {
@@ -383,6 +384,7 @@ export interface EmbroideryI {
   price: number;
   images: string[];
   slug: string;
+  title: string;
 }
 
 export interface DecorationDetailsI {
@@ -392,6 +394,7 @@ export interface DecorationDetailsI {
   price: number;
   images: string[];
   slug: string;
+  title: string;
 }
 
 export interface ICartProducts {
