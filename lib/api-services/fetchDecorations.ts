@@ -1,5 +1,5 @@
 import { BASE_URL } from '@components/constants';
-
+type ServerLocale = 'UA' | 'EN';
 interface DecorationsFetchRequest {
   currentLang: ServerLocale;
   currentPage: number;
