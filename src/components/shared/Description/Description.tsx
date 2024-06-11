@@ -9,6 +9,15 @@ import BuyButtons from '../BuyButtons/BuyButtons';
 import DecorationQuantity from '../DecorationQuantity/DecorationQuantity';
 
 import styles from './Description.module.scss';
+interface EmbroideryDetailsI {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  images: string[];
+  slug: string;
+}
  interface IProductDescriptionDict {
   price: string;
   quantity: string;
