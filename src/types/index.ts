@@ -404,6 +404,17 @@ export interface DecorationDetailsI {
   title: string;
   
 }
+export interface ICartProduct {
+  id: string;
+  quantity: number;
+  price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
+  aroma?: number;
+}
 
 export interface ICartProducts {
   decorations: DecorationDetailsI[];
