@@ -1,3 +1,4 @@
+import {IFilterItem} from "../../type";
 interface IUpdateItemValuesParams {
   item: IFilterItem;
   value: string;
