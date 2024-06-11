@@ -1,6 +1,9 @@
 import { BASE_URL } from '@components/constants';
 import { EmbroideryDetailsI } from "@components/types";
-
+interface CartApiRequest {
+  lang: string;
+  ids: string[];
+}
 export const fetchCartEmbroidery = async ({
   lang,
   ids,
