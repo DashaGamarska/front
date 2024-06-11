@@ -39,7 +39,7 @@ const BuyButtons: React.FC<BuyButtonsProps> = ({ product, isBox }) => {
           onClick={() =>
             addBoxToCart({
               id,
-              toastMessage: postMessage.itemAdded,
+              toastMessage: IToastMessages.itemAdded,
               aroma,
               quantity: 1,
               price,
