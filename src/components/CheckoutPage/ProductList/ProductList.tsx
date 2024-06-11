@@ -8,7 +8,7 @@ import { useCartContext } from '@context/CartContext';
 import ProductCard from '../ProductCard/ProductCard';
 
 import styles from './ProductList.module.scss';
-
+import {ICartProduct} from "../../../../type";
 interface ProductListProps {
   dict: ProductListDictionary;
   itemDeletedToast: string;
