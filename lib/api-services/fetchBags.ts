@@ -1,7 +1,7 @@
 import { BASE_URL } from '@components/constants';
 import { BoxDetailsI  } from '@components/types';
 
-
+export type ServerLocale = 'UA' | 'EN';
 export const fetchBags = async (lang: ServerLocale): Promise<BoxDetailsI []> => {
   //TODO: Remove revalidate
   const response = await fetch(`${BASE_URL}/bags?lang=${lang}`, {next: { revalidate: 3600 },
