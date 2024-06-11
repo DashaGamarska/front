@@ -37,7 +37,14 @@ export interface BagsDetailsI {
   kit: IBoxKit;
   quantity: number;
 }
-
+export interface IToastMessages {
+  notAllParam: string;
+  itemAdded: string;
+  itemDeleted: string;
+  successSubscription: string;
+  failedRequest: string;
+  aromaNeeded: string;
+}
 
 export interface ComponentI {
   title: string;
