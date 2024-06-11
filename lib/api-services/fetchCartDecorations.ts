@@ -1,4 +1,6 @@
 import { BASE_URL } from '@components/constants';
+import {CartApiRequest} from "../../type";
+import {DecorationDetailsI} from "@components/types";
 export const fetchCartDecorations = async ({
   lang,
   ids,
