@@ -8,7 +8,7 @@ import { useLocalStorage } from '@components/hooks/useLocalStorage';
 
 interface IAddDecorationsToCartParams {
   id: string;
-  toastMessage: string;
+  toastMessage?: string;
   quantity?: number;
   price: number;
   images: string[];
