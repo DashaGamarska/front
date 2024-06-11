@@ -3,8 +3,7 @@
 'use client';
 import { useState } from 'react';
 import Typography from '@components/components/Typography/Typography';
-import { ButtonsDictI, EmbroideryDetailsI, IToastMessages, IProductDescriptionDict } from '@components/types';
-
+import {IProductDescriptionDict, IToastMessages} from "@components/types"
 import AccordionSection from '../AccordionSection/AccordionSection';
 import BuyButtons from '../BuyButtons/BuyButtons';
 import DecorationQuantity from '../DecorationQuantity/DecorationQuantity';
