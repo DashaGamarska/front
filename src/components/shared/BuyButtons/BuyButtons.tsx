@@ -2,7 +2,6 @@
 import React from 'react';
 import Button from '@components/components/Button/Button';
 import { useCartActionsContext } from '@context/CartContext';
-import { toastMessages } from '@constants/toastMessages';
 import {IToastMessages} from "../../../../type";
 interface Product {
   id: string;
