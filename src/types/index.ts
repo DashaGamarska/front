@@ -1,69 +1,32 @@
+
+
 import { StaticImageData } from 'next/image';
 import { UseFormReturn } from 'react-hook-form';
 import { Locale } from '@i18n';
+import {ICartProducts} from "../../type";
 
-interface IBoxKit {
+export interface IBagsKit {
   container: string;
   wax: string;
   wick: string;
-  aromaToChoose: string;
   matchsticks: string;
 }
-export interface CustomCandleDescription {
-  
-  container: string;
-  wax: string;
-  aroma: string;
-  wick: string;
-  color: string;
-}
-export interface ApiRequest {
-  id: string;
-  currentLang: 'UA' | 'EN';
-  slug?: string;
-}
-export interface BoxDetailsI {
-  id: string;
-  images: string[];
-  title: string;
-  name: string;
-  price: number;
-  components: ComponentI[];
-  description: string;
-  slug: string;
-  volume: string;
-  text: string;
-  kit: IBoxKit;
-}
+
 export interface BagsDetailsI {
   id: string;
   images: string[];
   title: string;
+  quantity: number;
   name: string;
   price: number;
   components: ComponentI[];
   description: string;
   slug: string;
-  volume: string;
-  text: string;
-  kit: IBoxKit;
-  quantity: number;
-}
-export interface IToastMessages {
-  notAllParam: string;
-  itemAdded: string;
-  itemDeleted: string;
-  successSubscription: string;
-  failedRequest: string;
-  aromaNeeded: string;
 }
 
 export interface ComponentI {
   title: string;
   content: string;
-}
-interface DecorationsApiResponse {
-  decorations: DecorationsDetailsI[];
 }
 export interface DecorationDetailsI {
   id: string;
@@ -74,7 +37,6 @@ export interface DecorationDetailsI {
   price: number;
   slug: string;
 }
-
 
 export interface ICustomDecoration {
   id: string;
@@ -92,7 +54,14 @@ type parameterI = {
   images?: StaticImageData[];
   colors?: string[];
 };
-
+export interface IToastMessages {
+  notAllParam: string;
+  itemAdded: string;
+  itemDeleted: string;
+  successSubscription: string;
+  failedRequest: string;
+  aromaNeeded: string;
+}
 export interface ParameterI {
   dict: parameterI;
   currentParam: string | number;
@@ -113,7 +82,7 @@ export interface handelParamChangeArguments {
 }
 
 export interface ProductDetails {
-    id: string;
+  id: string;
   images: string[];
   title: string;
   price: number;
@@ -247,7 +216,9 @@ export interface FilterI {
   className?: string;
   closeModal?: () => void;
 }
-
+interface DecorationsApiResponse {
+  decorations: DecorationDetailsI[];
+}
 export interface DecorationsSectionI {
   dict: {
     filter: FilterT;
@@ -374,7 +345,13 @@ export interface UseScrollbarProps {
 }
 
 export type ServerLocale = 'UA' | 'EN';
-
+export interface CustomCandleDescription {
+  container: string;
+  wax: string;
+  aroma: string;
+  wick: string;
+  color: string;
+}
 export interface buildOrderDataI {
   dataForm: CheckoutFormValues;
   cartProducts: ICartProducts;
@@ -396,42 +373,10 @@ export interface EmbroideryDetailsI {
   price: number;
   images: string[];
   slug: string;
-  title: string;
 }
 
 export interface EmbroideryI {
   id: string;
   name: string;
   description: string;
-  price: number;
-  images: string[];
-  slug: string;
-  title: string;
-}
-
-export interface DecorationDetailsI {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  slug: string;
-  title: string;
-  
-}
-export interface ICartProduct {
-  id: string;
-  quantity: number;
-  price: number;
-  images: string[];
-  description: string;
-  slug: string;
-  name: string;
-  title: string;
-  aroma?: number;
-}
-
-export interface ICartProducts {
-  decorations: DecorationDetailsI[];
-  embroidery: EmbroideryDetailsI[];
 }
