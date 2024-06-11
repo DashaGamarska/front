@@ -18,7 +18,14 @@ interface BuyButtonsProps {
   product: Product;
   isBox: boolean;
 }
-
+interface IToastMessages {
+  notAllParam: string;
+  itemAdded: string;
+  itemDeleted: string;
+  successSubscription: string;
+  failedRequest: string;
+  aromaNeeded: string;
+}
 const BuyButtons: React.FC<BuyButtonsProps> = ({ product, isBox }) => {
   const { addBoxToCart } = useCartActionsContext();
   const { id, price, images, description, slug, name, title, aroma } = product;
