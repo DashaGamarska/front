@@ -16,7 +16,7 @@ const BagsList = async ({
       {items.map((box: BagsDetailsI) => (
         <BagsCard
           key={box.id}
-         
+          box
           dict={dict}
           toastMessage={toastMessage}
           lang={lang}
