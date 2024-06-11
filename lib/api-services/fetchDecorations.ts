@@ -1,4 +1,5 @@
 import { BASE_URL } from '@components/constants';
+import {DecorationsApiResponse} from "../../type";
 type ServerLocale = 'UA' | 'EN';
 interface DecorationsFetchRequest {
   currentLang: ServerLocale;
