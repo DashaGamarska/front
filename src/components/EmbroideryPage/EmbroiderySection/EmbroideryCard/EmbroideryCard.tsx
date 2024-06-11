@@ -22,7 +22,7 @@ const EmbroideryCard: React.FC<EmbroideryCardProps> = ({
   toastMessage,
   lang,
 }) => {
-  const { id, name, images, price, description, slug } = embroidery;
+  const { id, name, images, price, description, slug, title } = embroidery;
   console.log('name', name);
   console.log('images', images);
   
@@ -43,7 +43,7 @@ const EmbroideryCard: React.FC<EmbroideryCardProps> = ({
         <Price priceStyle={styles.price} price={price} />
         <div className={styles.button__container}>
           <BuyButton
-            product={{ id, price }}
+            product={{ id, price, images, description, slug, name, title }}
             buyBtn={buyBtn}
             toastMessage={toastMessage}
           />
