@@ -46,6 +46,33 @@ interface IDeleteCartItemParams {
 interface CartContextProps {
   children: React.ReactNode;
 }
+interface ICartEmbroidery {
+  id: string;
+  quantity: number;
+  price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
+}
+
+interface ICartDecoration {
+  id: string;
+  quantity: number;
+  price: number;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
+
+}
+
+interface ICartProducts {
+  embroidery: ICartEmbroidery[];
+  decorations: ICartDecoration[];
+}
 
 interface CartContextI {
   cartProducts: ICartProducts;
