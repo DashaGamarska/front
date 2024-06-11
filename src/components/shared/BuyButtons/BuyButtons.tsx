@@ -2,7 +2,7 @@
 import React from 'react';
 import Button from '@components/components/Button/Button';
 import { useCartActionsContext } from '@context/CartContext';
-import {IToastMessages} from "../../type";
+import {IToastMessages} from "@components/types";
 interface Product {
   id: string;
   price: number;
