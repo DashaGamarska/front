@@ -6,6 +6,10 @@ import { Locale } from '@i18n';
 import BoxImgSlider from '../BagsImgSlider/BagsImgSlider';
 import BuyButton from '../BuyButton/BuyButton';
 import styles from './BagsCard.module.scss';
+interface ComponentI {
+  title: string;
+  content: string;
+}
 interface BoxDetailsI {
   id: string;
   images: string[];
