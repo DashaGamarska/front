@@ -1,5 +1,5 @@
 import { BASE_URL } from '@components/constants';
-import { EmbroideryDetailsI } from '@components/types';
+import {EmbroideryDetailsI, ServerLocale} from '@components/types';
 
 export const fetchEmbroidery = async (
   lang: ServerLocale
