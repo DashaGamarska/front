@@ -395,6 +395,7 @@ export interface DecorationDetailsI {
   images: string[];
   slug: string;
   title: string;
+  aroma?: number;
 }
 
 export interface ICartProducts {
