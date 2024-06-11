@@ -34,7 +34,6 @@ const BuyButtons: React.FC<BuyButtonsProps> = ({ product, isBox }) => {
               id,
               aroma,
               quantity: 1,
-              toastMessage,
               price,
               images,
               description,
