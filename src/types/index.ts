@@ -9,6 +9,12 @@ interface IBoxKit {
   aromaToChoose: string;
   matchsticks: string;
 }
+export interface CustomCandleDescription {
+  
+  id: string;
+  description: string;
+  price: number;
+}
 export interface ApiRequest {
   id: string;
   currentLang: 'UA' | 'EN';
