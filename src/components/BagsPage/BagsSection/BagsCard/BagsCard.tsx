@@ -1,12 +1,24 @@
 import Link from 'next/link';
 import Price from '@components/components/shared/Price/Price';
 import Typography from '@components/components/Typography/Typography';
-import type { BoxDetailsI, ButtonsTranslation } from '@components/types';
+import type {  ButtonsTranslation } from '@components/types';
 import { Locale } from '@i18n';
 import BoxImgSlider from '../BagsImgSlider/BagsImgSlider';
 import BuyButton from '../BuyButton/BuyButton';
 import styles from './BagsCard.module.scss';
-
+interface BoxDetailsI {
+  id: string;
+  images: string[];
+  title: string;
+  name: string;
+  price: number;
+  components: ComponentI[];
+  description: string;
+  slug: string;
+  volume: string;
+  text: string;
+  kit: string | undefined;
+}
 type BagsCardProps = {
   box: BoxDetailsI;
   dict: ButtonsTranslation;
