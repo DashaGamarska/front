@@ -11,9 +11,11 @@ interface IBoxKit {
 }
 export interface CustomCandleDescription {
   
-  id: string;
-  description: string;
-  price: number;
+  container: string;
+  wax: string;
+  aroma: string;
+  wick: string;
+  color: string;
 }
 export interface ApiRequest {
   id: string;
