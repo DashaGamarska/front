@@ -1,4 +1,4 @@
-interface IProductDescriptionDict {
+export interface IProductDescriptionDict {
   price: string;
   quantity: string;
   topNotes: string;
