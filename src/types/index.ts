@@ -30,6 +30,7 @@ export interface ComponentI {
 }
 export interface DecorationDetailsI {
   id: string;
+  name: string;
   images: string[];
   title: string;
   description: string;
