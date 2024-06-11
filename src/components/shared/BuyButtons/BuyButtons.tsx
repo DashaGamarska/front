@@ -24,21 +24,14 @@ const BuyButtons: React.FC<BuyButtonsProps> = ({
   buttonsDict: { buyNow, addToCart },
   toastMessages,
 }) => {
-  const { addCandleToCart, addBoxToCart } = useCartActionsContext();
+  const {  addBoxToCart } = useCartActionsContext();
   const router = useRouter();
   const lang = useLangFromPathname();
 
   const { id, slug, quantity, price } = product;
   const isBox = slug === '/boxes';
 
-  const handleBuyCandle = () => {
-    addCandleToCart({
-      id,
-      toastMessage: toastMessages.itemAdded,
-      quantity,
-      price,
-    });
-  };
+ 
 
   const handleBuyBox = () => {
     isBox &&
