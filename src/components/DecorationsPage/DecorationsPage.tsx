@@ -7,7 +7,7 @@ import Tabs from '../Tabs/Tabs';
 import WaxDesc from '../WaxDesc/WaxDesc';
 
 import styles from './DecorationsPage.module.scss';
-
+import {DecorationsApiResponse} from "../../../type";
 interface DecorationsPageI {
   dictWax: {
     waxDesc: {
