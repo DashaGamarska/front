@@ -12,6 +12,9 @@ import { useLangFromPathname } from './useLangFromPathname';
 import { getStorageValue } from './useLocalStorage';
 import { useStatusState } from './useStatusState';
 
+import {ICartDecoration, ICartEmbroidery, ICartProduct, IHandleDeleteParams} from "../../type";
+import {ICartProducts} from "@components/types";
+
 export const useProductList = () => {
   const { cartProducts } = useCartContext();
   const [products, setProducts] = useState<ICartProduct[] | []>([]);
