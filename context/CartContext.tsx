@@ -21,7 +21,7 @@ interface IAddDecorationsToCartParams {
 
 interface IAddEmbroideryToCartParams {
   id: string;
-  toastMessage: string;
+  toastMessage?: string;
   quantity?: number;
   price: number;
   images: string[];
