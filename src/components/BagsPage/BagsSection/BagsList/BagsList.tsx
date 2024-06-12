@@ -1,9 +1,21 @@
-import type { BoxDetailsI, BagsSectionProps } from '@components/types';
+import type {  BagsSectionProps } from '@components/types';
 
 import BagsCard from '../BagsCard/BagsCard';
 
 import styles from './BagsList.module.scss';
-
+interface BoxDetailsI {
+  id: string;
+  images: string[];
+  title: string;
+  name: string;
+  price: number;
+  components: ComponentI[];
+  description: string;
+  slug: string;
+  volume: string;
+  text: string;
+  kit: string | undefined;
+}
 const BagsList = async ({
   dict,
   bags,
