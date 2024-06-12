@@ -1,4 +1,4 @@
-import type { BagsDetailsI, BagsSectionProps } from '@components/types';
+import type { BoxDetailsI, BagsSectionProps } from '@components/types';
 
 import BagsCard from '../BagsCard/BagsCard';
 
@@ -13,7 +13,7 @@ const BagsList = async ({
   const items = await bags;
   return (
     <ul className={styles.list}>
-      {items.map((box: BagsDetailsI) => (
+      {items.map((box: BoxDetailsI) => (
         <BagsCard
           key={box.id}
           box={box}
