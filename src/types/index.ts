@@ -397,6 +397,7 @@ export interface EmbroideryDetailsI {
   price: number;
   images: string[];
   slug: string;
+  title: string;
 }
 
 export interface EmbroideryI {
