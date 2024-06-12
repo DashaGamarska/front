@@ -32,7 +32,7 @@ export interface BagsDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit: IBoxKit;
+  kit: string | undefined;
 }
 interface BoxDetailsI {
   id: string;
@@ -45,7 +45,7 @@ interface BoxDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit: IBoxKit;
+  kit: string | undefined;
 }
 export interface ComponentI {
   title: string;
