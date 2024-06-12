@@ -12,6 +12,14 @@ export interface IBagsKit {
   matchsticks: string;
 }
 
+
+interface IBoxKit {
+  container: string;
+  wax: string;
+  wick: string;
+  aromaToChoose: string;
+  matchsticks: string;
+}
 export interface BagsDetailsI {
   id: string;
   images: string[];
@@ -22,13 +30,6 @@ export interface BagsDetailsI {
   components: ComponentI[];
   description: string;
   slug: string;
-}
-interface IBoxKit {
-  container: string;
-  wax: string;
-  wick: string;
-  aromaToChoose: string;
-  matchsticks: string;
 }
 interface BoxDetailsI {
   id: string;
