@@ -7,6 +7,8 @@ interface ComponentI {
   title: string;
   content: string;
 }
+
+
 interface BoxDetailsI {
   id: string;
   images: string[];
