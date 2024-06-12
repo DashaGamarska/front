@@ -128,7 +128,7 @@ export interface BagsDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit?: IBoxKit;
+  kit: IBoxKit;
 }
 
 
@@ -143,7 +143,7 @@ export interface BoxDetailsI {
   slug: string;
   volume: string;
   text: string;
-  kit?: IBoxKit;
+  kit: IBoxKit;
 }
 
 /*
