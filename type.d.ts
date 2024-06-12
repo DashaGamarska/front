@@ -109,6 +109,13 @@ interface DecorationsApiResponse {
   | Boxes
   |==============================
 */
+interface IBoxKit {
+  container: string;
+  wax: string;
+  wick: string;
+  aromaToChoose: string;
+  matchsticks: string;
+}
 export interface BagsDetailsI {
   id: string;
   images: string[];
@@ -123,13 +130,7 @@ export interface BagsDetailsI {
   text: string;
   kit: IBoxKit;
 }
-interface IBoxKit {
-  container: string;
-  wax: string;
-  wick: string;
-  aromaToChoose: string;
-  matchsticks: string;
-}
+
 
 export interface BoxDetailsI {
   id: string;
