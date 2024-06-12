@@ -16,7 +16,9 @@ interface BoxDetailsI {
   components: ComponentI[];
   description: string;
   slug: string;
-
+  volume: string;  
+  text: string;    
+  kit: string;
 }
 const BagsList = async ({
   dict,
