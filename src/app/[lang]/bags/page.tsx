@@ -70,3 +70,13 @@ const BagsDetails = async ({
 };
 
 export default BagsDetails; */
+
+const BagsDetails = () => {
+  return (
+    <div>
+      <h1>Bags page is temporarily unavailable</h1>
+    </div>
+  );
+}
+
+export default BagsDetails;
