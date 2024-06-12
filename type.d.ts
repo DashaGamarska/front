@@ -109,7 +109,20 @@ interface DecorationsApiResponse {
   | Boxes
   |==============================
 */
-
+export interface BagsDetailsI {
+  id: string;
+  images: string[];
+  title: string;
+  quantity: number;
+  name: string;
+  price: number;
+  components: ComponentI[];
+  description: string;
+  slug: string;
+  volume: string;
+  text: string;
+  kit: IBoxKit;
+}
 interface IBoxKit {
   container: string;
   wax: string;
