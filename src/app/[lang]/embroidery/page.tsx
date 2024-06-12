@@ -1,4 +1,4 @@
-import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
+/* import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
 import EmbroideryInfo from '@components/components/EmbroideryPage/EmbroideryInfo/EmbroideryInfo';
 import EmbroiderySection from '@components/components/EmbroideryPage/EmbroiderySection/EmbroiderySection';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
@@ -57,4 +57,4 @@ const Embroidery = async ({
   );
 };
 
-export default Embroidery;
+export default Embroidery; */
