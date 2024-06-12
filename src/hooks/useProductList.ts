@@ -12,9 +12,34 @@ import { useLangFromPathname } from './useLangFromPathname';
 import { getStorageValue } from './useLocalStorage';
 import { useStatusState } from './useStatusState';
 
-import {ICartDecoration, ICartEmbroidery, ICartProduct, IHandleDeleteParams} from "../../type";
-import {ICartProducts} from "@components/types";
+import { ICartProduct, IHandleDeleteParams} from "../../type";
 
+interface ICartDecoration {
+  id: string;
+  images: string[];
+  description: string;
+  slug: string;
+  name: string;
+  title: string;
+  quantity: number;
+  price: number;
+}
+
+interface ICartEmbroidery {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+  price: number;
+  images: string[];
+  slug: string;
+  title: string;
+}
+
+export interface ICartProducts {
+  decorations: ICartDecoration[];
+  embroidery: ICartEmbroidery[];
+}
 export const useProductList = () => {
   const { cartProducts } = useCartContext();
   const [products, setProducts] = useState<ICartProduct[] | []>([]);
