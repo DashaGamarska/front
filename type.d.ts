@@ -118,7 +118,7 @@ interface IBoxKit {
   matchsticks: string;
 }
 
-interface BoxDetailsI {
+export interface BoxDetailsI {
   id: string;
   images: string[];
   title: string;
