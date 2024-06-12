@@ -1,4 +1,4 @@
-import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
+/* import BagsDetailsPage from '@components/components/BagsDetailsPage/BagsDetailsPage';
 import Breadcrumbs from '@components/components/Breadcrumbs/Breadcrumbs';
 // import RelatedProducts from '@components/components/shared/RelatedProducts/RelatedProducts';
 import { convertToServerLocale } from '@components/helpers/convertToServerLocale';
@@ -69,4 +69,4 @@ const BagsDetails = async ({
   );
 };
 
-export default BagsDetails;
+export default BagsDetails; */
