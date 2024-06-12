@@ -3,6 +3,10 @@ import type {  BagsSectionProps } from '@components/types';
 import BagsCard from '../BagsCard/BagsCard';
 
 import styles from './BagsList.module.scss';
+interface ComponentI {
+  title: string;
+  content: string;
+}
 interface BoxDetailsI {
   id: string;
   images: string[];
