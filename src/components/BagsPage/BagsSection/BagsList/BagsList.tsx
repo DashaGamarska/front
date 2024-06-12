@@ -41,7 +41,7 @@ interface BoxDetailsI {
   slug: string;
   volume: string;  
   text: string;    
-  kit: string;
+  kit: IBoxKit;
 }
 const BagsList = async ({
   dict,
