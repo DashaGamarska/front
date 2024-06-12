@@ -58,3 +58,13 @@ const Embroidery = async ({
 };
 
 export default Embroidery; */
+
+const Embroidery = () => {
+  return (
+    <div>
+      <h1>Embroidery page is temporarily unavailable</h1>
+    </div>
+  );
+}
+
+export default Embroidery;
