@@ -30,6 +30,9 @@ export interface BagsDetailsI {
   components: ComponentI[];
   description: string;
   slug: string;
+  volume: string;
+  text: string;
+  kit: string | undefined;
 }
 interface BoxDetailsI {
   id: string;
